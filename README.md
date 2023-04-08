@@ -15,6 +15,10 @@ This library provides show recommendations based on the user-specified genre.
 - [ ] Python version: `3.10 and above`
 - [ ] Required library: 
 
+pandas, numpy
+google-auth and google-auth-oauthlib - for authentication when connecting to the Youtube API.
+google-api-python-client - for accessing the Youtube API and retrieving show information.
+
 
 ### III. Details of Each Function/Class
 
