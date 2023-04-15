@@ -1,8 +1,12 @@
 ## Show Recommendation System
 This library provides show recommendations based on the user-specified genre. 
 
-### I. Project Plan
-* Phase 1: Connect to Youtube API to retrieve show information (title and genre) for a pre-defined set of genres. The results are saved into a csv file. 
+### I. Project Overview
+* Phase 1: `youtube.py` includes a python tool that connect to Youtube API to retrieve show information (title and genre) for a pre-defined set of genres. 
+    * Input: 
+        * Video genres provided in a list of strings format
+        * The number of videos to retrieve 
+    * Output: The results are saved into a csv file. 
 * Phase 2: Build a recommendation system that takes a csv file as input. Define a function to clean the show information remove any unwanted characters. Define a function to recommend top 10 shows using TF-IDF and cosine similarity based on a user-input show genre.
     * Use type hints
     * Doc strings
@@ -13,20 +17,14 @@ This library provides show recommendations based on the user-specified genre.
 ### II. Setup Instructions
 - [ ] In your local terminal, clone the repo
 - [ ] Python version: `3.10 and above`
-- [ ] Required library: 
-
-`pandas`, `numpy`
-
-`google-auth` and `google-auth-oauthlib` - for authentication when connecting to the Youtube API.
-
-`google-api-python-client` - for accessing the Youtube API and retrieving show information.
-
+- [ ] Required library: `pandas`, `numpy`, `google-api-python-client`, `langdetect`
 
 ### III. Details of Each Function/Class
 
 ### IV. Examples
 ```python
->> abc
+>> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
+
 ```
 
 ### V. Test Instruction
