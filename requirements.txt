@@ -1,0 +1,7 @@
+mypy
+pycodestyle
+pydocstyle
+black
+pylint
+google-api-python-client
+langdetect
