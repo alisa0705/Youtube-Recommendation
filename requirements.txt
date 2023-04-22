@@ -1,7 +1,6 @@
-mypy
-pycodestyle
-pydocstyle
-black
-pylint
-google-api-python-client
-langdetect
+google_api_python_client==2.85.0
+langdetect==1.0.9
+pandas==2.0.0
+tqdm==4.65.0
+regex==2023.3.23
+nltk==3.8.1
