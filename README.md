@@ -22,7 +22,7 @@ This library provides show recommendations based on the user input.
 
 ### IV. Examples
 ```python
->> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
+>> retrieve_shows(["Comedy", "Drama", "Action", "Horror", "Music", "Art"], 500) # Output is a csv file
 
 >>> show_recommendation() # After running this line, users will see the following prompt where they are instructed to enter video information after the colon. 
 Enter a video title or genre: `comedy`
