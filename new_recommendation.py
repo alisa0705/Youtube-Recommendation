@@ -1,12 +1,11 @@
 import pandas as pd
+import numpy as np
 import re
 import string
-import numpy as np
-from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import ipywidgets as widgets
-from IPython.display import display
+from gensim.models import Word2Vec
+from nltk.corpus import stopwords
 
 data = pd.read_csv("video_info.csv")
 data = data.drop_duplicates(subset='Title', keep="first")
@@ -37,16 +36,13 @@ data["title_n_genre"] = data["Title"] + " " + data["Genre"]
 vectorizer = TfidfVectorizer(ngram_range=(1, 3))
 tfidf = vectorizer.fit_transform(data["title_n_genre"])
 
-# def search(title):
-#     title = clean(title)
-#     query_vec = vectorizer.transform([title])
-#     similarity = cosine_similarity(query_vec, tfidf).flatten()
-#     indices = np.argpartition(similarity, -10)[-10:]
-#     results = data.iloc[indices].iloc[::-1].reset_index(drop=True)
+# Tokenize the 'title_n_genre' column
+data['tokens'] = data['title_n_genre'].apply(lambda x: x.split())
 
-#     return results[['Title', 'Genre', 'URL']]
+# Train the Word2Vec model
+w2v_model = Word2Vec(data['tokens'], min_count=1, vector_size=50)
 
-def search(title):
+def search(title, w2v_model):
     title = clean(title)
     query_vec = vectorizer.transform([title])
     similarity = cosine_similarity(query_vec, tfidf).flatten()
@@ -75,22 +71,16 @@ def search(title):
 
     return results[['Title', 'Genre', 'URL']]
 
-# Rest of the code remains the same
+
+def show_recommendation():
+    """
+    Prompts the user to enter a video title and displays recommendations based on the input.
+    """
+    # Prompt the user to enter a video title
+    user_input = input("Enter a video title: ")
+    # Display recommendations based on the input
+    print(search(user_input, w2v_model))
 
 
-movie_input = widgets.Text(
-    value='Enter Here',
-    description='Video Title:',
-    disabled=False
-)
-movie_list = widgets.Output()
-
-def on_type(data):
-    with movie_list:
-        movie_list.clear_output()
-        title = data["new"]
-        display(search(title))
-
-movie_input.observe(on_type, names='value')
-
-display(movie_input, movie_list)
+if __name__ == "__main__":
+    show_recommendation()
