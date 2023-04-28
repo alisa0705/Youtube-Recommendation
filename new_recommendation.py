@@ -40,7 +40,7 @@ tfidf = vectorizer.fit_transform(data["title_n_genre"])
 data['tokens'] = data['title_n_genre'].apply(lambda x: x.split())
 
 # Train the Word2Vec model
-w2v_model = Word2Vec(data['tokens'], min_count=1, vector_size=50)
+w2v_model = Word2Vec(data['tokens'], min_count=1, vector_size=50,seed=42)
 
 def search(title, w2v_model):
     title = clean(title)
