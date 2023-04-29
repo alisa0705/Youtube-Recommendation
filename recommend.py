@@ -1,5 +1,5 @@
 """
-A module that recommends 10 Youtube videos based on user input.
+A module that recommends 5 Youtube videos based on user input.
 Adopted from: https://www.youtube.com/watch?v=eyEabQRBMQA.
 """
 
@@ -10,8 +10,8 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
-
-# nltk.download('stopwords') # Uncomment to download for initial run
+import nltk
+nltk.download("stopwords")
 
 
 # Read into CSV
@@ -51,6 +51,10 @@ def clean(text: str) -> str:
     text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
     # Remove newline characters
     text = re.sub("\n", "", text)
+    # Remove non-English characters
+    text = re.sub("[^a-zA-Z0-9 \n\.]", "", text)
+    # Remove emojis
+    text = re.sub("[^\w\s,]", "", text)
     # Remove words with numbers
     text = re.sub("\w*\d\w*", "", text)
     # Remove stop words
@@ -66,48 +70,45 @@ def clean(text: str) -> str:
 # Clean the "Title" column using the "clean" function and overwrite the existing column
 videos["Title"] = videos["Title"].apply(clean)
 
-# Create a new column called "title_n_genre" that concatenates the "Title" and "Genre" columns
-videos["title_n_genre"] = videos["Title"] + " " + videos["Genre"]
-
 # Create a TfidfVectorizer object with unigrams and bigrams
 vectorizer = TfidfVectorizer(ngram_range=(1, 2))
 
-# Fit the vectorizer to the "title_n_genre" column of the data
+# Fit the vectorizer to the "Genre" column of the data
 # and transform the data into a TF-IDF matrix
-tfidf = vectorizer.fit_transform(videos["title_n_genre"])
+tfidf = vectorizer.fit_transform(videos["Genre"])
 
 
-def search(title: str) -> object:
+def search(user_input: str) -> object:
     """
-    Returns a pandas dataframe with the top 10 recommended shows based on the cosine similarity
-    between the input title and the titles in the data.
+    Returns a pandas dataframe with the top 5 recommended shows based on the cosine similarity
+    between the user input and the genres in the data.
 
     Args:
         title (str): The title of the show to use as the query.
 
     Returns:
-        A dataframe with the columns "Title", "Genre", and "URL" for the top 10 recommended shows.
+        A dataframe with the columns "Title", "Genre", and "URL" for the top 5 recommended shows.
     """
     # Clean the input title
-    title = clean(title)
+    user_input_ = clean(user_input)
     # Convert the input title to a tf-idf vector
-    query_vec = vectorizer.transform([title])
+    query_vec = vectorizer.transform([user_input_])
     # Calculate the cosine similarity between the input title and all the titles in the data
     similarity = cosine_similarity(query_vec, tfidf).flatten()
     # Get the indices of the top 10 shows with the highest cosine similarity to the input title
-    indices = np.argpartition(similarity, -10)[-10:]
-    # Get the top 10 recommended shows and reverse the order
+    indices = np.argpartition(similarity, -5)[-5:]
+    # Get the top 5 recommended shows and reverse the order
     results = videos.iloc[indices].iloc[::-1].reset_index(drop=True)
-    # Return the top 10 recommended shows with the columns "Title", "Genre", and "URL"
+    # Return the top 5 recommended shows with the columns "Title", "Genre", and "URL"
     return results[["Title", "Genre", "URL"]]
 
 
 def show_recommendation():
     """
-    Prompts the user to enter a video title and displays recommendations based on the input.
+    Prompts the user to enter a video genre and displays recommendations based on the input.
     """
     # Prompt the user to enter a video title
-    user_input = input("Enter a video title: ")
+    user_input = input("Enter a video genre: ")
     # Display recommendations based on the input
     print(search(user_input))
 
