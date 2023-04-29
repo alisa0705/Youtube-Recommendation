@@ -18,9 +18,8 @@ This library provides show recommendations based on the user input.
 - [ ] Python version: `3.10 and above`
 - [ ] Required library: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn`
 
-### III. Details of Each Function/Class
 
-### IV. Examples
+### III. Examples
 ```python
 >> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
 
@@ -35,7 +34,7 @@ Enter a video genre: `horror`
 
 ```
 
-### V. Test Instruction
+### IV. Test Instruction
 
 To run pytest and check test coverage, run the following code in terminal: 
 ```
