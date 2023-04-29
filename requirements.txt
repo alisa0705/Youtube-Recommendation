@@ -1,7 +1,8 @@
-mypy
-pycodestyle
-pydocstyle
-black
-pylint
-google-api-python-client
-langdetect
+google_api_python_client==2.85.0
+nltk==3.8.1
+numpy==1.24.3
+pandas==2.0.0
+scikit_learn==1.2.2
+pytest==7.3.1
+coverage==7.2.4
+
