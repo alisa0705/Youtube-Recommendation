@@ -1,14 +1,14 @@
 """A module that exports youtube videos into a csv file."""
 import csv
 import os
-import googleapiclient.discovery
+import googleapiclient.discovery  # type: ignore
 
 
 def retrieve_shows(genres: list[str], num_show: int) -> None:
     """Retrieve Youtube show information (i.e., show title, genre, and url)."""
     # Set the API credentials and parameters
     youtube = googleapiclient.discovery.build(
-        "youtube", "v3", developerKey=os.environ["YOUTUBE_API_2"]
+        "youtube", "v3", developerKey=os.environ["YOUTUBE_API"]
     )
     search_params = {
         "type": "video",
@@ -38,7 +38,7 @@ def retrieve_shows(genres: list[str], num_show: int) -> None:
                 video_id = search_result["id"]["videoId"]
                 video_response = (
                     youtube.videos()
-                    .list(part="snippet, statistics", id=video_id, hl="en_US")
+                    .list(part="snippet", id=video_id, hl="en_US")
                     .execute()
                 )
                 for video_result in video_response.get("items", []):
@@ -51,4 +51,4 @@ def retrieve_shows(genres: list[str], num_show: int) -> None:
 
 
 if __name__ == "__main__":
-    retrieve_shows(["Comedy", "Drama", "Action", "Horror", "Music", "Art"], 500)
+    retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200)
