@@ -14,7 +14,7 @@ This library provides show recommendations based on the user input.
 
 
 ### II. Setup Instructions
-- [ ] In your local terminal, clone the repo
+- [ ] In your local terminal, clone the repository
 - [ ] Python version: `3.10 and above`
 - [ ] Required library: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn`
 
@@ -25,7 +25,7 @@ This library provides show recommendations based on the user input.
 >> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
 
 >>> show_recommendation() # After running this line, users will see the following prompt where they are instructed to enter video information after the colon. 
-Enter a video title or genre: `horror`
+Enter a video genre: `horror`
                                                Title   Genre                                          URL
 0                    The Ballerina Short Horror Film  Horror  https://www.youtube.com/watch?v=sTtmpFIaFqc
 1       Paranormal Tales Bodycam Horror Game Trailer  Horror  https://www.youtube.com/watch?v=m-Pimp8vuXE
