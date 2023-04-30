@@ -1,4 +1,4 @@
-## Show Recommendation System
+# Show Recommendation System
 This library provides show recommendations based on the user input. 
 
 ### I. Project Overview
@@ -12,8 +12,8 @@ This library provides show recommendations based on the user input.
     * Output: 5 show recommendation
 * Phase 3: Write tests and documentation
 
-
-### II. Setup Instructions
+## II. For End Users
+### 1. Setup Instructions
 - [ ] In your local terminal, clone the repository
 - [ ] Python version: `3.10 and above`
 - [ ] Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
@@ -21,7 +21,7 @@ This library provides show recommendations based on the user input.
     * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
 
-### III. Examples
+### 2. Examples
 ```python
 >> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
 
@@ -36,7 +36,8 @@ Enter a video genre: `horror`
 
 ```
 
-### IV. Test Instruction
+## For Contributors
+### 1. Test Instruction
 
 To run pytest and check test coverage, run the following code in terminal: 
 ```
