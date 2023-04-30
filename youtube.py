@@ -2,14 +2,20 @@
 import csv
 import os
 import googleapiclient.discovery  # type: ignore
+import click # type: ignore
 
-
-def retrieve_shows(genres: list[str], num_show: int) -> None:
+@click.command()
+@click.argument("output_file")
+@click.option("--genres", "-g", multiple=True, required=True, help="Genres to search for.")
+@click.option("--num_show", "-n", default=200, help="Number of videos to retrieve per genre.")
+def retrieve_shows(genres, num_show, output_file):
     """Retrieve Youtube show information (i.e., show title, genre, and url)."""
+
     # Set the API credentials and parameters
     youtube = googleapiclient.discovery.build(
         "youtube", "v3", developerKey=os.environ["YOUTUBE_API"]
     )
+
     search_params = {
         "type": "video",
         "part": "snippet",
@@ -17,13 +23,11 @@ def retrieve_shows(genres: list[str], num_show: int) -> None:
         "order": "relevance",
     }
 
-    # Set the output CSV file name
-    output_file = "video_info.csv"
-
     # Open the output file for writing
     with open(output_file, "w", newline="", encoding="utf-8-sig") as csvfile:
         # Create a CSV writer object
         writer = csv.writer(csvfile)
+
         # Write the header row to the CSV file
         writer.writerow(["Title", "Genre", "URL"])
 
@@ -31,6 +35,7 @@ def retrieve_shows(genres: list[str], num_show: int) -> None:
         for genre in genres:
             # Set the genre search parameter
             search_params["q"] = genre
+
             # Search for videos and add the results to the CSV file
             search_response = youtube.search().list(**search_params).execute()
             for search_result in search_response.get("items", []):
@@ -41,14 +46,17 @@ def retrieve_shows(genres: list[str], num_show: int) -> None:
                     .list(part="snippet", id=video_id, hl="en_US")
                     .execute()
                 )
+
                 for video_result in video_response.get("items", []):
                     # Get the video title
                     video_title = video_result["snippet"]["title"]
+
                     # Get the video URL
                     video_url = f"https://www.youtube.com/watch?v={video_id}"
+
                     # Write the video title, genre, and URL to the CSV file
                     writer.writerow([video_title, genre, video_url])
 
 
 if __name__ == "__main__":
-    retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200)
+    retrieve_shows()
