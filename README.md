@@ -48,20 +48,22 @@ coverage report -m
 ```
 
 ### 2. API Keys Instruction
+#### a. Generate New API keys
 
+Follow this instruction to generate a new API key:
 
-
-Instructions on how to generate New API keys
 https://developers.google.com/youtube/v3/getting-started
-Generate New API keys
 
+It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
 
-github 
+#### b. Use API Key as Secret in GitHub
+Under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
 
 ![5081682868404_ pic](https://user-images.githubusercontent.com/89174034/235361548-5a027165-7411-43e1-9f96-d765f899547c.jpg)
 
+#### c. Update Secret Name in `youtube.py`
 
-
+<img width="592" alt="Screen Shot 2023-04-30 at 11 41 10 AM" src="https://user-images.githubusercontent.com/89174034/235362357-dc2c3286-abef-4f0c-b855-3b8bd762ad6f.png">
 
 
 
