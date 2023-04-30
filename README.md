@@ -1,4 +1,7 @@
 # Show Recommendation System
+
+[![checks](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml/badge.svg)](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml)
+
 This library provides show recommendations based on the user input. 
 
 ### I. Project Overview
