@@ -21,9 +21,28 @@ This library provides show recommendations based on the user input.
     * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
 
-### 2. Examples
+### 2. Input File Format
+`youtube.py`:
+
+`retrieve_shows(genres: list[str], num_show: int) -> None`
+
+Enter the desired genres and number of shows. The output is a csv file with show Title, Genre and URL. 
+
+`recommend.py`:
+
+`clean(text: str) -> str`
+
+This function takes a string as input and returns the cleaned string. It remove non-English characters, emoji, numbers, whitespace, and other special characters. 
+
+`search(_user_input: str, _data_frame: pd.DataFrame) -> object`
+
+The search function takes two parameters: _user_input and _data_frame. _user_input is a string with user's search query. _data_frame is a Pandas DataFrame that contains information about the TV shows.
+
+It returns an object that contains the TV shows that match the search query.
+
+### 3. Examples
 ```python
->> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) # Output is a csv file
+>> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) 
 
 >>> show_recommendation() # After running this line, users will see the following prompt where they are instructed to enter video information after the colon. 
 Enter a video genre: `horror`
