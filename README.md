@@ -38,13 +38,30 @@ Enter a video genre: `horror`
 
 ## For Contributors
 ### 1. Test Instruction
-#### a. Install python and `pytest`.
-#### b. Modify the existing `recommend.py` and `youtube.py` files. Update the test functions accordingly. 
-#### c. To run pytest and check test coverage, run the following code in terminal: 
+#### a. Modify the existing `recommend.py` and `youtube.py` files. Update the test functions accordingly. 
+#### b. To run pytest and check test coverage, run the following code in terminal: 
 
 ```
 pytest test_youtube.py test_recommend.py
 coverage run -m pytest test_youtube.py test_recommend.py > test_report.txt
 coverage report -m
 ```
+
+### 2. API Keys Instruction
+
+
+
+Instructions on how to generate New API keys
+https://developers.google.com/youtube/v3/getting-started
+Generate New API keys
+
+
+github 
+
+![5081682868404_ pic](https://user-images.githubusercontent.com/89174034/235361548-5a027165-7411-43e1-9f96-d765f899547c.jpg)
+
+
+
+
+
 
