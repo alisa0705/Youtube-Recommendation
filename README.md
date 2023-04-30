@@ -16,7 +16,9 @@ This library provides show recommendations based on the user input.
 ### II. Setup Instructions
 - [ ] In your local terminal, clone the repository
 - [ ] Python version: `3.10 and above`
-- [ ] Required library: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn`
+- [ ] Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
+    * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
+    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
 
 ### III. Examples
@@ -38,8 +40,8 @@ Enter a video genre: `horror`
 
 To run pytest and check test coverage, run the following code in terminal: 
 ```
-pip install --upgrade pip && pip install -r requirements.txt
 pytest test_youtube.py test_recommend.py
-coverage run -m pytest test_main.py > test_report.txt
+coverage run -m pytest test_youtube.py test_recommend.py > test_report.txt
 coverage report -m
 ```
+
