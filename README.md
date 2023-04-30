@@ -74,7 +74,9 @@ pytest test_youtube.py test_recommend.py
 coverage run -m pytest test_youtube.py test_recommend.py > test_report.txt
 coverage report -m
 ```
+
 Current Coverage: 
+
 <img width="392" alt="Screenshot 2023-04-30 at 2 00 04 PM" src="https://user-images.githubusercontent.com/105904149/235368967-a1fedc5e-085b-4f07-a67a-3ea03ebcd092.png">
 
 ### 2. API Keys Instruction
