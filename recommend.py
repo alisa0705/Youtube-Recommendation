@@ -6,12 +6,13 @@ Adopted from: https://www.youtube.com/watch?v=eyEabQRBMQA.
 
 import string
 import re
-import numpy as np
+import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 from sklearn.feature_extraction.text import TfidfVectorizer  # type: ignore
 from nltk.corpus import stopwords  # type: ignore
 import nltk  # type: ignore
+
 nltk.download("stopwords")
 
 

@@ -1,4 +1,7 @@
 # Show Recommendation System
+
+[![checks](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml/badge.svg)](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml)
+
 This library provides show recommendations based on the user input. 
 
 ### I. Project Overview
@@ -66,11 +69,15 @@ Enter a video genre: `horror`
 #### a. Modify the existing `recommend.py` and `youtube.py` files. Update the test functions accordingly. 
 #### b. To run pytest and check test coverage, run the following code in terminal: 
 
-```
+```python
 pytest test_youtube.py test_recommend.py
 coverage run -m pytest test_youtube.py test_recommend.py > test_report.txt
 coverage report -m
 ```
+
+Current Coverage: 
+
+<img width="392" alt="Screenshot 2023-04-30 at 2 00 04 PM" src="https://user-images.githubusercontent.com/105904149/235368967-a1fedc5e-085b-4f07-a67a-3ea03ebcd092.png">
 
 ### 2. API Keys Instruction
 Follow the instruction under `II. For End Users` -> `1d. API Keys Instruction` section. 
