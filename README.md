@@ -16,7 +16,7 @@ This library provides show recommendations based on the user input.
    * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
-#### d. As the video information is obtained from YouTube via API, it's important to generate your own API keys in order to run the `youtube.py` file successfully. Below are intructions on how to set up YouTube API: 
+#### d. API Keys Instruction: as the video information is obtained from YouTube via API, it's important to generate your own API keys in order to run the `youtube.py` file successfully.
 * Generate New API keys: follow [the instruction](https://developers.google.com/youtube/v3/getting-started) to generate a new API key. It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
 
 * Store API Key in GitHub Secrets: under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
@@ -73,4 +73,4 @@ coverage report -m
 ```
 
 ### 2. API Keys Instruction
-Follow the instruction under `II. For End Users` -> `2. API Keys Instruction` section. 
+Follow the instruction under `II. For End Users` -> `1d. API Keys Instruction` section. 
