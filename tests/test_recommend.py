@@ -1,6 +1,6 @@
 """ Unit tests for recommend.py """
 import pandas as pd  # type: ignore
-from recommend import clean, search
+from recommend import clean, search # type: ignore
 
 
 def test_clean():
