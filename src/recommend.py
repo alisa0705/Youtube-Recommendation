@@ -12,6 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 from sklearn.feature_extraction.text import TfidfVectorizer  # type: ignore
 from nltk.corpus import stopwords  # type: ignore
 import nltk  # type: ignore
+
 nltk.download("stopwords")
 
 
