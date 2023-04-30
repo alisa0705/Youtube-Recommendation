@@ -16,21 +16,14 @@ This library provides show recommendations based on the user input.
    * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
-### 2. API Keys Instruction
-#### a. Generate New API keys
+#### d. As the video information is obtained from YouTube via API, it's important to generate your own API keys in order to run the `youtube.py` file successfully. Below are intructions on how to set up YouTube API: 
+* Generate New API keys: follow [the instruction](https://developers.google.com/youtube/v3/getting-started) to generate a new API key. It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
 
-Follow this instruction to generate a new API key:
-
-https://developers.google.com/youtube/v3/getting-started
-
-It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
-
-#### b. Use API Key as Secret in GitHub
-Under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
+* Store API Key in GitHub Secrets: under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
 
 ![5081682868404_ pic](https://user-images.githubusercontent.com/89174034/235361548-5a027165-7411-43e1-9f96-d765f899547c.jpg)
 
-#### c. Update Secret Name in `youtube.py`
+* Update Secret Name in `youtube.py` accordingly
 
 <img width="592" alt="Screen Shot 2023-04-30 at 11 41 10 AM" src="https://user-images.githubusercontent.com/89174034/235362357-dc2c3286-abef-4f0c-b855-3b8bd762ad6f.png">
 
