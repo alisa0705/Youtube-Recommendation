@@ -6,7 +6,7 @@ This library provides show recommendations based on the user input.
 
 * Phase 2: `recommend.py` includes a python tool that uses the output csv file from the previous phase and generates video recommendations based on user-input. It returns top 5 recommended shows based on the cosine similarity between the user input and the genres in the data.
 
-* Phase 3: Write tests and documentation
+* Phase 3: Write tests and documentation.
 
 ## II. For End Users
 ### 1. Setup Instructions
@@ -18,13 +18,13 @@ This library provides show recommendations based on the user input.
 
 
 ### 2. Input File Format
-`youtube.py`:
+#### a. `youtube.py`:
 
 `retrieve_shows(genres: list[str], num_show: int) -> None`
 
 Enter the desired genres in a list of strings format and number of shows. The output is a csv file with show Title, Genre and URL. 
 
-`recommend.py`:
+#### b. `recommend.py`:
 
 `clean(text: str) -> str`
 
@@ -51,7 +51,7 @@ Enter a video genre: `horror`
 
 ```
 
-## For Contributors
+## III. For Contributors
 ### 1. Test Instruction
 #### a. Modify the existing `recommend.py` and `youtube.py` files. Update the test functions accordingly. 
 #### b. To run pytest and check test coverage, run the following code in terminal: 
