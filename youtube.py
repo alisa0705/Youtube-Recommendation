@@ -7,10 +7,8 @@ import click  # type: ignore
 
 @click.command()
 @click.argument("output_file")
-@click.option(
-    "--genres", "-g", multiple=True, required=True, help="Genres to search."
-)
-@click.option("--num_show", "-n", default=200, help="Number of videos.")
+@click.option("--genres", "-g", multiple=True, required=True, help="Genres")
+@click.option("--num_show", "-n", default=200, help="Number of videos")
 def retrieve_shows(genres, num_show, output_file):
     """Retrieve Youtube show information (i.e., show title, genre, and url)."""
     # Set the API credentials and parameters
