@@ -51,6 +51,7 @@ It returns an object that contains the TV shows that match the search query.
 
 ### 4. Examples
 
+To get show information csv, run this line in terminal:
 
 ```python
 $python youtube.py --genres Comedy Drama Action Horror --num_show 200 video_info.csv
