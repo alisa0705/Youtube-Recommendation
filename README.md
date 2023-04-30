@@ -50,8 +50,13 @@ The search function takes two parameters: _user_input and _data_frame. _user_inp
 It returns an object that contains the TV shows that match the search query.
 
 ### 4. Examples
+
+
 ```python
->> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) 
+$python youtube.py --genres Comedy Drama Action Horror --num_show 200 video_info.csv
+```
+
+```python
 
 >>> show_recommendation() # After running this line, users will see the following prompt where they are instructed to enter video information after the colon. 
 Enter a video genre: `horror`
