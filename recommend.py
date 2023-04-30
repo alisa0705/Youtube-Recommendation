@@ -40,14 +40,14 @@ def clean(text: str) -> str:
     Returns:
         str: The cleaned text string.
     """
-    # Convert text to title case
-    text = str(text).title()
+    # Convert text to lower case for regex
+    text = str(text).lower()
     # Remove URLs
     text = re.sub("https?://\\S+|www\\.\\S+", "", text)
     # Remove HTML tags
     text = re.sub("<.*?>+", "", text)
     # Remove punctuation marks
-    text = re.sub("[%s]" % re.escape(string.punctuation), "", text)
+    text = re.sub(f"[{re.escape(string.punctuation)}]", "", text)
     # Remove newline characters
     text = re.sub("\n", "", text)
     # Remove non-English characters
@@ -62,21 +62,21 @@ def clean(text: str) -> str:
     # Remove empty words
     text = " ".join([word for word in text.split(" ") if word != ""])
     # Return the cleaned text
-    return text
+    return text.title()
 
 
 # Clean the "Title" column using the "clean" function and overwrite
 videos["Title"] = videos["Title"].apply(clean)
 
 
-def search(user_input: str, _data_frame: object) -> object:
+def search(_user_input: str, _data_frame: pd.DataFrame) -> object:
     """
     Return top 5 recommended shows based on the cosine similarity.
 
     between the user input and the genres in the data.
 
     Args:
-        title (str): The title of the show to use as the query.
+        _user_input (str): The title of the show to use as the query.
         _data_frame (object): A dataframe containing show information
 
     Returns:
@@ -84,7 +84,7 @@ def search(user_input: str, _data_frame: object) -> object:
         and "URL" for the top 5 recommended shows.
     """
     # Clean the input title
-    user_input_ = clean(user_input)
+    user_input_ = clean(_user_input)
     # Create a TfidfVectorizer object with unigrams and bigrams
     vectorizer = TfidfVectorizer(ngram_range=(1, 2))
     # Fit the vectorizer to the "Genre" column of the data
