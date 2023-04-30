@@ -13,8 +13,8 @@ This library provides show recommendations based on the user input.
 #### a. In your local terminal, clone the repository
 #### b. Python version: `3.10 and above`
 #### c. Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
-    * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
-    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
+   * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
+   * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
 
 ### 2. Input File Format
