@@ -1,13 +1,13 @@
 """ Unit tests for recommend.py """
-import pandas as pd
+import pandas as pd  # type: ignore
 from recommend import clean, search
 
 
 def test_clean():
     """Test clean function"""
     input_text = "The quick brown fox jumps over the lazy dog! 🦊🐶"
-    expected_output = "Quick Brown Fox Jumps Lazy Dog"
-    assert clean(input_text) == expected_output
+    expected = "Quick Brown Fox Jumps Lazy Dog"
+    assert clean(input_text) == expected
     assert clean("Hello world") == "Hello World"
     assert clean("https://www.example.com") == ""
     assert clean("<div>Hello World</div>") == "Hello World"
@@ -59,7 +59,7 @@ def test_search():
     )
     user_input = "fantasy"
 
-    expected_output = pd.DataFrame(
+    expected = pd.DataFrame(
         {
             "Title": [
                 "Harry Potter and the Order of the Phoenix",
@@ -78,5 +78,4 @@ def test_search():
             ],
         }
     ).reset_index(drop=True)
-    assert search(
-        user_input, videos).reset_index(drop=True).equals(expected_output)
+    assert search(user_input, videos).reset_index(drop=True).equals(expected)
