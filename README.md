@@ -3,20 +3,16 @@ This library provides show recommendations based on the user input.
 
 ### I. Project Overview
 * Phase 1: `youtube.py` includes a python tool that connect to Youtube API to retrieve show information (title and genre) for a pre-defined set of genres. 
-    * Input: 
-        * Video genres provided in a list of strings format
-        * The number of videos to retrieve 
-    * Output: The results are saved into a csv file. 
-* Phase 2: `recommend.py` includes a python tool that consumes the output csv file from the previous phase and generates video recommendations based on user-input. 
-    * Input: A string describing video title or genre
-    * Output: 5 show recommendation
+
+* Phase 2: `recommend.py` includes a python tool that uses the output csv file from the previous phase and generates video recommendations based on user-input. It returns top 5 recommended shows based on the cosine similarity between the user input and the genres in the data.
+
 * Phase 3: Write tests and documentation
 
 ## II. For End Users
 ### 1. Setup Instructions
-- [ ] In your local terminal, clone the repository
-- [ ] Python version: `3.10 and above`
-- [ ] Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
+#### a. In your local terminal, clone the repository
+#### b. Python version: `3.10 and above`
+#### c. Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
     * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
     * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
@@ -26,7 +22,7 @@ This library provides show recommendations based on the user input.
 
 `retrieve_shows(genres: list[str], num_show: int) -> None`
 
-Enter the desired genres and number of shows. The output is a csv file with show Title, Genre and URL. 
+Enter the desired genres in a list of strings format and number of shows. The output is a csv file with show Title, Genre and URL. 
 
 `recommend.py`:
 
