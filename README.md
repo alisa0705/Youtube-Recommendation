@@ -38,8 +38,10 @@ Enter a video genre: `horror`
 
 ## For Contributors
 ### 1. Test Instruction
+#### a. Install python and `pytest`.
+#### b. Modify the existing `recommend.py` and `youtube.py` files. Update the test functions accordingly. 
+#### c. To run pytest and check test coverage, run the following code in terminal: 
 
-To run pytest and check test coverage, run the following code in terminal: 
 ```
 pytest test_youtube.py test_recommend.py
 coverage run -m pytest test_youtube.py test_recommend.py > test_report.txt
