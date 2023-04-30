@@ -13,11 +13,21 @@ This library provides show recommendations based on the user input.
 #### a. In your local terminal, clone the repository
 #### b. Python version: `3.10 and above`
 #### c. Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
-    * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
-    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
+   * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
+   * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
+#### d. API Keys Instruction: as the video information is obtained from YouTube via API, it's important to generate your own API keys in order to run the `youtube.py` file successfully.
+* Generate New API keys: follow [the instruction](https://developers.google.com/youtube/v3/getting-started) to generate a new API key. It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
 
-### 2. Input File Format
+* Store API Key in GitHub Secrets: under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
+
+![5081682868404_ pic](https://user-images.githubusercontent.com/89174034/235361548-5a027165-7411-43e1-9f96-d765f899547c.jpg)
+
+* Update Secret Name in `youtube.py` accordingly
+
+<img width="592" alt="Screen Shot 2023-04-30 at 11 41 10 AM" src="https://user-images.githubusercontent.com/89174034/235362357-dc2c3286-abef-4f0c-b855-3b8bd762ad6f.png">
+
+### 3. Input File Format
 #### a. `youtube.py`:
 
 `retrieve_shows(genres: list[str], num_show: int) -> None`
@@ -36,7 +46,7 @@ The search function takes two parameters: _user_input and _data_frame. _user_inp
 
 It returns an object that contains the TV shows that match the search query.
 
-### 3. Examples
+### 4. Examples
 ```python
 >> retrieve_shows(["Comedy", "Drama", "Action", "Horror"], 200) 
 
@@ -63,22 +73,4 @@ coverage report -m
 ```
 
 ### 2. API Keys Instruction
-#### a. Generate New API keys
-
-Follow this instruction to generate a new API key:
-
-https://developers.google.com/youtube/v3/getting-started
-
-It is important to note that YouTube API has a default quota limit per day. Once this limit is exceeded, you will receive an error and will not be able to make any requests. In this case, you may consider generating a new API key.
-
-#### b. Use API Key as Secret in GitHub
-Under the repository, select `Settings` -> `Secrets and variables` -> `Codespaces`, You will see a list of secrets. You can update your new secret here. 
-
-![5081682868404_ pic](https://user-images.githubusercontent.com/89174034/235361548-5a027165-7411-43e1-9f96-d765f899547c.jpg)
-
-#### c. Update Secret Name in `youtube.py`
-
-<img width="592" alt="Screen Shot 2023-04-30 at 11 41 10 AM" src="https://user-images.githubusercontent.com/89174034/235362357-dc2c3286-abef-4f0c-b855-3b8bd762ad6f.png">
-
-
-
+Follow the instruction under `II. For End Users` -> `1d. API Keys Instruction` section. 
