@@ -17,7 +17,7 @@ def test_retrieve_shows():
         retrieve_shows(GENRES, NUM_SHOWS)
 
         # Check if the output file exists
-        assert os.path.isfile("video_info.csv"), "Output file not"
+        assert os.path.isfile("video_info.csv"), "Output file not found"
 
         # Check if the output file is not empty
         with open("video_info.csv", encoding="utf-8-sig") as csvfile:
