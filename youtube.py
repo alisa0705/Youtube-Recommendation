@@ -9,7 +9,7 @@ import click  # type: ignore
 @click.argument("output_file")
 @click.option("--genres", "-g", multiple=True, required=True, help="Genres")
 @click.option("--num_show", "-n", default=200, help="Number of videos")
-def retrieve_shows(genres, num_show, output_file):
+def retrieve_shows(genres: list[str], num_show: int) -> None
     """Retrieve Youtube show information (i.e., show title, genre, and url)."""
     # Set the API credentials and parameters
     youtube = googleapiclient.discovery.build(
