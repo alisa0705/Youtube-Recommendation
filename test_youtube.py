@@ -3,24 +3,44 @@ import os
 import csv
 import pytest  # type: ignore
 from googleapiclient.errors import HttpError  # type: ignore
+from click.testing import CliRunner
 from youtube import retrieve_shows  # type: ignore
 
+
 # Set up the test data
-GENRES = ["Comedy", "Drama", "Action", "Horror", "Music", "Art"]
-NUM_SHOWS = 5
+GENRE1 = "Comedy"
+GENRE2 = "Drama"
+NUM_SHOWS = 50
+OUTPUT_PATH = "videos.csv"
 
 
 def test_retrieve_shows():
     """Test the retrieve_shows function."""
     try:
         # Call the function to retrieve shows
-        retrieve_shows(GENRES, NUM_SHOWS)
+        runner = CliRunner()
+        result = runner.invoke(
+            retrieve_shows,
+            [
+                "--genres",
+                GENRE1,
+                "--genres",
+                GENRE2,
+                "--num_show",
+                str(NUM_SHOWS),
+                OUTPUT_PATH,
+            ],
+        )
+        print(result.output)
+
+        # Check if the command ran successfully
+        assert result.exit_code == 0, "The command did not run successfully"
 
         # Check if the output file exists
-        assert os.path.isfile("video_info.csv"), "Output file not found"
+        assert os.path.isfile(OUTPUT_PATH), "Output file not found"
 
         # Check if the output file is not empty
-        with open("video_info.csv", encoding="utf-8-sig") as csvfile:
+        with open(OUTPUT_PATH, encoding="utf-8-sig") as csvfile:
             csv_reader = csv.reader(csvfile)
             header_row = next(csv_reader)
             assert header_row == [
@@ -33,7 +53,7 @@ def test_retrieve_shows():
 
         # Check if the function returns None
         assert (
-            retrieve_shows(GENRES, NUM_SHOWS) is None
+            result.return_value is None
         ), "The retrieve_shows function should return None"
 
     except HttpError as error:
