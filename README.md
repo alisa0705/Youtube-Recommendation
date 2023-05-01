@@ -50,6 +50,7 @@ The search function takes two parameters: _user_input and _data_frame. _user_inp
 It returns a dataframe that contains the TV shows that match the search query.
 
 `show_recommendation(input_file: str) -> None`
+
 The show recommendation takes a string representing the input file name and triggers a prompt in the terminal for users to input their genres of interest. 
 
 It returns nothing. Instead, it prints video recommendations in the terminal. 
