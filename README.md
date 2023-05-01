@@ -57,13 +57,13 @@ It returns nothing. Instead, it prints video recommendations in the terminal.
 
 ### 4. Examples
 
-To generate a `.csv` file containing show information, run this line in terminal:
+To generate a `.csv` file containing show information, run the following line in terminal. Users can specify (1) genres (i.e., Comedy, Drama, Action, Horror in the below example), (2) the number of shows (i.e., 200 in the below example), and (3) the output file name (i.e., videos.csv in the below example). 
 
 ```python
 >>> python youtube.py -g Comedy -g Drama -g Action -g Horror -n 200 videos.csv
 ```
 
-To generate video recommendations, run this line in terminal: 
+To generate video recommendations, run the following line in terminal. Users can specify (1) the input file name (i.e., videos.csv in the below example) when calling the command line tool and (2) a video genre upon the terminal prompt (i.e., horror in the below example). 
 
 ```python
 >>> python recommend.py videos.csv
