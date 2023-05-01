@@ -55,7 +55,7 @@ def clean(text: str) -> str:
     return text.title()
 
 
-def search(_user_input: str, _data_frame: pd.DataFrame) -> object:
+def search(_user_input: str, _data_frame: pd.DataFrame) -> pd.DataFrame:
     """
     Return top 5 recommended shows based on the cosine similarity.
 
