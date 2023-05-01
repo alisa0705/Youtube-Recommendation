@@ -2,12 +2,12 @@
 
 [![checks](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml/badge.svg)](https://github.com/biostat821-2023/Show_Recommendation_System/actions/workflows/checks.yml)
 
-This library provides show recommendations based on the user input. 
+This command line tool provides show recommendations based on the user input. 
 
 ### I. Project Overview
-* Phase 1: `youtube.py` includes a python tool that connect to Youtube API to retrieve show information (title and genre) for a pre-defined set of genres. 
+* Phase 1: `youtube.py` includes a python command line tool that connect to Youtube API to retrieve show information (title and genre) for a pre-defined set of genres. 
 
-* Phase 2: `recommend.py` includes a python tool that uses the output csv file from the previous phase and generates video recommendations based on user-input. It returns top 5 recommended shows based on the cosine similarity between the user input and the genres in the data.
+* Phase 2: `recommend.py` includes a python command line tool that uses the output csv file from the previous phase and generates video recommendations based on user-input. It returns top 5 recommended shows based on the cosine similarity between the user input and the genres in the data.
 
 * Phase 3: Write tests and documentation.
 
@@ -16,7 +16,7 @@ This library provides show recommendations based on the user input.
 #### a. In your local terminal, clone the repository
 #### b. Python version: `3.10 and above`
 #### c. Required library: run `pip install --upgrade pip && pip install -r requirements.txt` to set up your environment
-   * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn` 
+   * for `youtube.py` and `recommend.py`: `google-api-python-client`,  `nltk`, `numpy`, `pandas`, `scikit_learn`, `click`
    * for `test_youtube.py` and `test_recommend.py`: `pytest`, `coverage`
 
 #### d. API Keys Instruction: as the video information is obtained from YouTube via API, it's important to generate your own API keys in order to run the `youtube.py` file successfully.
@@ -43,23 +43,29 @@ Enter the desired genres in a list of strings format and number of shows. The ou
 
 This function takes a string as input and returns the cleaned string. It remove non-English characters, emoji, numbers, whitespace, and other special characters. 
 
-`search(_user_input: str, _data_frame: pd.DataFrame) -> object`
+`search(_user_input: str, _data_frame: pd.DataFrame) -> pd.DataFrame`
 
 The search function takes two parameters: _user_input and _data_frame. _user_input is a string with user's search query. _data_frame is a Pandas DataFrame that contains information about the TV shows.
 
-It returns an object that contains the TV shows that match the search query.
+It returns a dataframe that contains the TV shows that match the search query.
+
+`show_recommendation(input_file: str) -> None`
+The show recommendation takes a string representing the input file name and triggers a prompt in the terminal for users to input their genres of interest. 
+
+It returns nothing. Instead, it prints video recommendations in the terminal. 
 
 ### 4. Examples
 
-To get show information csv, run this line in terminal:
+To generate a `.csv` file containing show information, run this line in terminal:
 
 ```python
-$python youtube.py --genres Comedy --genres Drama --genres Action --genres Horror --num_show 200 output_file.csv
+>>> python youtube.py -g Comedy -g Drama -g Action -g Horror -n 200 videos.csv
 ```
 
-```python
+To generate video recommendations, run this line in terminal: 
 
->>> show_recommendation() # After running this line, users will see the following prompt where they are instructed to enter video information after the colon. 
+```python
+>>> python recommend.py videos.csv
 Enter a video genre: `horror`
                                                Title   Genre                                          URL
 0                    The Ballerina Short Horror Film  Horror  https://www.youtube.com/watch?v=sTtmpFIaFqc
