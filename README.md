@@ -90,7 +90,7 @@ coverage report -m
 
 Current Coverage: 
 
-<img width="392" alt="Screenshot 2023-04-30 at 2 00 04 PM" src="https://user-images.githubusercontent.com/105904149/235368967-a1fedc5e-085b-4f07-a67a-3ea03ebcd092.png">
+<img width="381" alt="Screenshot 2023-05-01 at 12 18 54 PM" src="https://user-images.githubusercontent.com/105904149/235486313-f09014fd-560c-431d-8d55-2c6da4dd74ae.png">
 
 ### 2. API Keys Instruction
 Follow the instruction under `II. For End Users` -> `1d. API Keys Instruction` section. 
