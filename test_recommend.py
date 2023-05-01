@@ -62,11 +62,11 @@ def test_search():
     expected = pd.DataFrame(
         {
             "Title": [
-                "Harry Potter and the Order of the Phoenix",
-                "Harry Potter and the Prisoner of Azkaban",
-                "Harry Potter and the Goblet of Fire",
-                "Harry Potter and the Chamber of Secrets",
-                "Harry Potter and the Philosopher’s Stone",
+                "Harry Potter Order Phoenix",
+                "Harry Potter Prisoner Azkaban",
+                "Harry Potter Goblet Fire",
+                "Harry Potter Chamber Secrets",
+                "Harry Potter Philosophers Stone",
             ],
             "Genre": ["Fantasy", "Fantasy", "Fantasy", "Fantasy", "Fantasy"],
             "URL": [
