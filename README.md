@@ -28,7 +28,7 @@ This command line tool provides show recommendations based on the user input.
 
 * Update Secret Name in `youtube.py` accordingly
 
-<img width="592" alt="Screen Shot 2023-04-30 at 11 41 10 AM" src="https://user-images.githubusercontent.com/89174034/235362357-dc2c3286-abef-4f0c-b855-3b8bd762ad6f.png">
+<img width="579" alt="Screenshot 2023-05-01 at 12 23 26 PM" src="https://user-images.githubusercontent.com/105904149/235487107-ca53f546-72f9-47ef-97ec-f5c2f9a45532.png">
 
 ### 3. Input File Format
 #### a. `youtube.py`:
