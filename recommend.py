@@ -12,21 +12,10 @@ from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 from sklearn.feature_extraction.text import TfidfVectorizer  # type: ignore
 from nltk.corpus import stopwords  # type: ignore
 import nltk  # type: ignore
+import click  # type: ignore
+
 
 nltk.download("stopwords")
-
-
-# Read into CSV
-videos = pd.read_csv("video_info.csv")
-videos = videos.drop_duplicates(subset="Title", keep="first")
-
-
-assert (
-    videos.isnull().sum() == 0
-).all(), "Please review input csv file. Null values detected."
-assert (
-    videos.duplicated(subset="Title").sum() == 0
-), "Remove duplicative values in the input csv file."
 
 
 stopword = set(stopwords.words("english"))
@@ -66,11 +55,7 @@ def clean(text: str) -> str:
     return text.title()
 
 
-# Clean the "Title" column using the "clean" function and overwrite
-videos["Title"] = videos["Title"].apply(clean)
-
-
-def search(_user_input: str, _data_frame: pd.DataFrame) -> object:
+def search(_user_input: str, _data_frame: pd.DataFrame) -> pd.DataFrame:
     """
     Return top 5 recommended shows based on the cosine similarity.
 
@@ -84,6 +69,8 @@ def search(_user_input: str, _data_frame: pd.DataFrame) -> object:
         A dataframe with the columns "Title", "Genre",
         and "URL" for the top 5 recommended shows.
     """
+    # Clean the "Title" column using the "clean" function and overwrite
+    _data_frame["Title"] = _data_frame["Title"].apply(clean)
     # Clean the input title
     user_input_ = clean(_user_input)
     # Create a TfidfVectorizer object with unigrams and bigrams
@@ -103,8 +90,13 @@ def search(_user_input: str, _data_frame: pd.DataFrame) -> object:
     return results[["Title", "Genre", "URL"]]
 
 
-def show_recommendation():
+@click.command()
+@click.argument("input_file")
+def show_recommendation(input_file: str) -> None:
     """Display recommendations."""
+    # Load the data
+    videos = pd.read_csv(input_file)
+
     # Prompt the user to enter a video title
     user_input = input("Enter a video genre: ")
     # Display recommendations based on the input
